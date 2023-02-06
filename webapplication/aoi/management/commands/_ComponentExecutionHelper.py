@@ -32,7 +32,8 @@ class ComponentExecutionHelper():
             'SENTINEL2_CACHE':os.path.join(
                 settings.NOTEBOOK_POD_DATA_VOLUME_MOUNT_PATH, 
                 str(settings.SATELLITE_IMAGES_FOLDER). \
-                    replace(os.path.commonpath([settings.SATELLITE_IMAGES_FOLDER, settings.PERSISTENT_STORAGE_PATH])+'/', '')
+                    replace(os.path.commonpath([settings.SATELLITE_IMAGES_FOLDER, settings.PERSISTENT_STORAGE_PATH])+'/', ''),
+                f"request_{request.pk}_cache"
             )
         }
         if request.component.period_required:
